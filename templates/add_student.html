@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+<h2>Add Student Record</h2>
+
+<form method="POST">
+    <label for="id_number">ID Number:</label><br>
+    <input type="text" id="id_number" name="id_number" required><br><br>
+
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br><br>
+
+    <label for="middle_name">Middle Name:</label><br>
+    <input type="text" id="middle_name" name="middle_name"><br><br>
+
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br><br>
+
+    <button type="submit">Save Student</button>
+</form>
+{% endblock %}

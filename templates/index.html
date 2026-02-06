@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to My Flask Website</h1>
+
+<div class="button-container">
+    <a href="{{ url_for('add_student') }}">
+        <button class="add-student-btn">Add Student Record</button>
+    </a>
+    
+    <a href="{{ url_for('view_students') }}">
+        <button class="view-student-btn">View Students</button>
+    </a>
+</div>
+{% endblock %}
