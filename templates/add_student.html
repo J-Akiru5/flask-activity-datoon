@@ -1,23 +1,45 @@
-{% extends "base.html" %}
+{% extends "admin_base.html" %}
 
 {% block title %}Add Student{% endblock %}
 
 {% block content %}
-<h2>Add Student Record</h2>
+<div class="content-wrapper">
+    <h2 class="page-title">Add New Student</h2>
+    <p class="page-subtitle">Enter student details to register them in the system.</p>
 
-<form method="POST">
-    <label for="id_number">ID Number:</label><br>
-    <input type="text" id="id_number" name="id_number" required><br><br>
+    <div class="card">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>ID Number</label>
+                <input type="text" name="id_number" required placeholder="e.g. 2024-001">
+            </div>
 
-    <label for="first_name">First Name:</label><br>
-    <input type="text" id="first_name" name="first_name" required><br><br>
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" required placeholder="Enter first name">
+            </div>
 
-    <label for="middle_name">Middle Name:</label><br>
-    <input type="text" id="middle_name" name="middle_name"><br><br>
+            <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" name="middle_name" placeholder="Enter middle name (optional)">
+            </div>
 
-    <label for="last_name">Last Name:</label><br>
-    <input type="text" id="last_name" name="last_name" required><br><br>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" required placeholder="Enter last name">
+            </div>
 
-    <button type="submit">Save Student</button>
-</form>
+            <div class="form-group">
+                <label>Student Photo</label>
+                <input type="file" name="photo" accept="image/*">
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Accepted formats: PNG, JPG, JPEG</p>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 15px;">
+                <button type="submit" class="btn add-student-btn">Save Student Record</button>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

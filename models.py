@@ -8,6 +8,7 @@ class Student(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     middle_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100), nullable=False)
+    photo = db.Column(db.String(200))  # NEW FIELD (image filename)
 
 class Admin(db.Model):
     __tablename__ = 'admins'

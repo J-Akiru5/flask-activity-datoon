@@ -1,8 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}About{% endblock %}
+{% block title %}About Us{% endblock %}
 
 {% block content %}
-<h1>About Us</h1>
-<p>This website is built using Flask.</p>
+<div class="content-wrapper">
+    <h2 class="page-title">About the System</h2>
+    <p class="page-subtitle">Student Information Management System</p>
+
+    <div class="card">
+        <h3>Our Purpose</h3>
+        <p style="line-height: 1.8; color: #555;">
+            This system is designed to streamline the management of student records, providing a centralized platform for administrators to handle academic data efficiently. It ensures data accuracy, security, and accessibility for educational institutions.
+        </p>
+    </div>
+
+    <div class="features-grid" style="margin-top: 40px;">
+        <div class="card-purple">
+            <h3>Key Features</h3>
+            <p style="margin-top: 15px; line-height: 1.6; opacity: 0.9;">
+                - Student Registration<br>
+                - Academic Record Management<br>
+                - Secure Data Storage<br>
+                - User-Friendly Interface
+            </p>
+        </div>
+        
+        <div class="card">
+            <h3 style="color: #667eea;">System Goals</h3>
+            <ul style="margin-top: 15px; padding-left: 20px; line-height: 2; color: #555;">
+                <li>Efficiency</li>
+                <li>Reliability</li>
+                <li>Security</li>
+                <li>Scalability</li>
+                <li>Usability</li>
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

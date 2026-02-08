@@ -1,9 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block content %}
-<h1>Contact Us</h1>
-<p>Email: example@email.com</p>
-<p>Phone: 0912-345-6789</p>
+<div class="content-wrapper">
+    <h2 class="page-title">Contact Support</h2>
+    <p class="page-subtitle">Get in touch with the administration.</p>
+
+    <div style="max-width: 600px; margin: 0 auto;">
+        <div class="card">
+            <h3 style="color: #667eea; margin-bottom: 20px;">Contact Information</h3>
+            
+            <div style="margin-bottom: 20px; display: flex; align-items: start; gap: 15px;">
+                <div style="background: #f0f3ff; padding: 10px; border-radius: 50%; color: #667eea;">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 5px 0;">Email</h4>
+                    <p style="color: #666; margin: 0;">datoonhazel092@gmail.com</p>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 15px;">
+                <div style="background: #f0f3ff; padding: 10px; border-radius: 50%; color: #667eea;">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 5px 0;">Phone</h4>
+                    <p style="color: #666; margin: 0;">09649394968</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
