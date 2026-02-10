@@ -4,27 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Admin Dashboard{% endblock %} - Admin Panel</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-content">
-            <div class="logo-container">
-                <div class="institution-name">
-                    <h1>ADMIN DASHBOARD</h1>
-                    <p>Student Records Management System</p>
-                </div>
+    <!-- Large header removed for a cleaner look as per user request -->
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('change_password') }}">Password</a>
+                <a href="{{ url_for('view_students') }}" target="_blank">Live Site</a>
+                <a href="{{ url_for('admin_logout') }}" class="nav-logout">Logout</a>
             </div>
         </div>
-    </header>
-
-    <nav class="admin-nav">
-        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
-        <a href="{{ url_for('admin_add_student') }}">Add Student</a>
-        <a href="{{ url_for('view_students') }}" target="_blank">View Live Site</a>
-        <a href="{{ url_for('home') }}">Logout</a>
     </nav>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -44,7 +39,25 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-bottom" style="margin-top: 0; padding-top: 20px;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> datoonhazel092@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 09649394968</p>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>San Matias, Dingle, Iloilo</p>
+                <p>Philippines</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></p>
+                <p><a href="{{ url_for('admin_add_student') }}">Add Student</a></p>
+                <p><a href="{{ url_for('home') }}">Logout</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2024 Admin Panel. Authorized Personnel Only.</p>
         </div>
     </footer>

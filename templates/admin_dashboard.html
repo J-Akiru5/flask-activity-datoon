@@ -1,24 +1,22 @@
-{% extends "base_admin.html" %}
+{% extends "admin_layout.html" %}
 
 {% block title %}Admin Dashboard{% endblock %}
 
 {% block content %}
 <div class="content-wrapper">
-    <div style="margin-bottom: 30px;">
+    <div style="margin-bottom: 2rem;">
         <h1 class="page-title">Welcome, {{ session.admin_username }}</h1>
         <p class="page-subtitle">Manage student records efficiently from this dashboard.</p>
     </div>
 
-    <div style="margin-bottom: 20px;">
-        <a href="{{ url_for('admin_add_student') }}">
-            <button class="btn add-student-btn">
-                <i class="fas fa-plus"></i> Add Student Record
-            </button>
+    <div style="margin-bottom: 2rem; display: flex; justify-content: center;">
+        <a href="{{ url_for('admin_add_student') }}" class="btn">
+            <i class="fas fa-plus" style="margin-right: 8px;"></i> Add Student Record
         </a>
     </div>
 
     <div class="card">
-        <h2 style="margin-bottom: 20px;">Student Records</h2>
+        <h2 style="margin-bottom: 1.5rem; text-align: center;">Student Records</h2>
         
         <div class="table-container">
             <table class="student-table">
@@ -29,7 +27,7 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
-                        <th>Actions</th>
+                        <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,12 +44,12 @@
                         <td>{{ s.first_name }}</td>
                         <td>{{ s.middle_name }}</td>
                         <td>{{ s.last_name }}</td>
-                        <td>
-                            <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 14px; margin-right: 5px;" 
+                        <td style="text-align: center;">
+                            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem; margin-right: 0.5rem;" 
                                 onclick="openEditModal('{{ s.id_number }}','{{ s.first_name }}','{{ s.middle_name }}','{{ s.last_name }}')">
                                 <i class="fas fa-edit"></i> Edit
                             </button>
-                            <button class="btn logout-btn" style="padding: 6px 14px; font-size: 14px;" 
+                            <button class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: #ef4444;" 
                                 onclick="openDeleteModal('{{ s.id_number }}')">
                                 <i class="fas fa-trash"></i> Delete
                             </button>
@@ -60,7 +58,7 @@
                 {% endfor %}
                 {% if not students %}
                     <tr>
-                        <td colspan="6" class="no-records">No students registered yet.</td>
+                        <td colspan="6" class="no-records" style="text-align: center; padding: 2rem; color: var(--text-muted);">No students registered yet.</td>
                     </tr>
                 {% endif %}
                 </tbody>

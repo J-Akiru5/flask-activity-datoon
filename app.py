@@ -159,18 +159,25 @@ def admin_add_student():
 
     if request.method == "POST":
         try:
+            id_number = request.form["id_number"].strip()
+            
+            # Explicit uniqueness check
+            if Student.query.get(id_number):
+                flash(f"Error: Student ID '{id_number}' already exists.", "error")
+                return redirect(url_for("admin_add_student"))
+
             file = request.files.get("photo")
             filename = None
 
             if file and allowed_file(file.filename):
-                filename = secure_filename(f"{request.form['id_number']}_{file.filename}")
+                filename = secure_filename(f"{id_number}_{file.filename}")
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
             student = Student(
-                id_number=request.form["id_number"],
-                first_name=request.form["first_name"],
-                middle_name=request.form["middle_name"],
-                last_name=request.form["last_name"],
+                id_number=id_number,
+                first_name=request.form["first_name"].strip(),
+                middle_name=request.form["middle_name"].strip() if request.form["middle_name"] else None,
+                last_name=request.form["last_name"].strip(),
                 photo=filename
             )
 
